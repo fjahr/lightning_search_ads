@@ -4,17 +4,9 @@ if (document.readyState === "complete") {
   var search;
 
   if (window.location.host == "duckduckgo.com") {
-      search = location.search.split("&")[0].substring(3).split("+").join(" ");
+    search = location.search.split("&")[0].substring(3).split("+").join(" ");
   }
   console.log(search);
-
-  async function digestMessage(message) {
-    const msgUint8 = new TextEncoder().encode(message);                           // encode as (utf-8) Uint8Array
-    const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);           // hash the message
-    const hashArray = Array.from(new Uint8Array(hashBuffer));                     // convert buffer to byte array
-    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); // convert bytes to hex string
-    return hashHex;
-  }
 
   const digestHex = digestMessage(search).then((hash) => {
     console.log(hash);
@@ -36,7 +28,7 @@ if (document.readyState === "complete") {
     $("div#lnads").append("⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡")
     ads.forEach(function(ad) {
       $("div#lnads").append(
-        "<p><a class='lnad' href='" + ad.url + "'>" + ad.text + " (" + ad.sats + " sats to view)</a></p>"
+        "<p><a class='lightning-ad' href='" + ad.url + "'>" + ad.text + " (" + ad.sats + " sats for viewing)</a></p>"
       )
     })
     $("div#lnads").append("⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡")
@@ -47,3 +39,11 @@ if (document.readyState === "complete") {
 
 }
 }, 10);
+
+async function digestMessage(message) {
+  const msgUint8 = new TextEncoder().encode(message);                           // encode as (utf-8) Uint8Array
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);           // hash the message
+  const hashArray = Array.from(new Uint8Array(hashBuffer));                     // convert buffer to byte array
+  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); // convert bytes to hex string
+  return hashHex;
+}
