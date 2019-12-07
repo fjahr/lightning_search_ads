@@ -1,5 +1,5 @@
 {
-  "name": "CHANGE THIS : Extension boilerplate",
+  "name": "Lightning Search Ads",
   "version": "0.0.1",
   "manifest_version": 2,
   "description": "This extension was created with the awesome extensionizr.com",
@@ -21,12 +21,13 @@
   },
   "permissions": [
     "https://duckduckgo.com/*",
-    " https://gist.github.com/*"
+    "https://gist.github.com/*",
+    "tabs"
   ],
   "content_scripts": [
     {
       "matches": [
-        "https://www.duckduckgo.com/*"
+        "https://duckduckgo.com/*"
       ],
       "css": [
         "src/inject/inject.css"
@@ -34,7 +35,7 @@
     },
     {
       "matches": [
-        "https://www.duckduckgo.com/*"
+        "https://duckduckgo.com/*"
       ],
       "js": [
         "js/jquery/jquery.js",
