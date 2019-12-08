@@ -25,7 +25,8 @@
   "permissions": [
     "https://duckduckgo.com/*",
     "https://gist.github.com/*",
-    "tabs"
+    "tabs",
+    "storage"
   ],
   "content_scripts": [
     {

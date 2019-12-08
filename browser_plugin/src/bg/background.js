@@ -12,7 +12,6 @@ chrome.extension.onMessage.addListener(
     sendResponse();
   });
 
-console.log("foo");
 $("#lightning-ad-form").submit(function(event) {
   event.preventDefault();
   url = "https://api.opennode.co/v2/withdrawals";
@@ -21,6 +20,7 @@ $("#lightning-ad-form").submit(function(event) {
     address: $('#invoice').val(),
     type: "ln"
   });
+  console.log("foo");
 
   posting.done(function( data ) {
     console.log(data);

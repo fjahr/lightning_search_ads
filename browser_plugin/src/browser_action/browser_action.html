@@ -9,21 +9,31 @@
 	h1 {
 		font-size: 2em;
 	}
+
+  p#status{
+    color: green;
+  }
+
+  .hidden { display: none !important; }
 </style>
 
 <div id="mainPopup">
-<h1>You earned 100sats. Claim your reward!</h1>
-<form id="lightning-ad-form" action="https://api.opennode.co/v2/withdrawals" method="post">
-
-    <input type="hidden" id="type" name="invoice" value="ln">
-    <div>
+  <div id="form" class="hidden">
+    <h1>You earned 100 sats. Claim your reward!</h1>
+    <form id="lightning-ad-form" action="https://api.opennode.co/v2/withdrawals" method="post">
+        <input type="hidden" id="type" name="type" value="ln">
         <label class="title">Invoice</label>
-        <input type="text" id="address" name="invoice" >
-    </div>
-    <div>
+        <input type="text" id="address" name="address" >
         <input type="submit" id="submitButton"  name="submitButton" value="Submit">
-    </div>
-</form>
+    </form>
+    <p id="status"></p>
+  </div>
+  <div id="offer" class="hidden">
+    You can earn 100 sats by clicking on the offer link.
+  </div>
+  <div id="no-offer" class="hidden">
+    No offers available.
+  </div>
 </div>
 
 <script type="text/javascript" src="popup.js"></script>
