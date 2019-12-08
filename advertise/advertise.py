@@ -1,4 +1,3 @@
-import config
 import requests
 import sys
 import hashlib
@@ -14,6 +13,6 @@ req_data = {
     'amount': str(amount),
     'customer_name': search_hash + "|" + ad_text + "|" + ad_url
 }
-url = 'https://api.lightning.gifts/create'
+url = 'https://api.opennode.co/v1/charges'
 r = requests.post(url, data=req_data).json()
 print(r)
