@@ -17,7 +17,7 @@ if (document.readyState === "complete") {
   var ads = [
     {
       "url": "https://gist.github.com/fjahr/44a0881a6da4012fd19b7f09df4408a7",
-      "text": "The first honey badger padding zoo in Berlin!",
+      "text": "The first honey badger petting zoo in Berlin!",
       "sats": 100
     }
   ]
@@ -37,6 +37,20 @@ if (document.readyState === "complete") {
   // TODO: Add listeners to clicks on the ads
   // TODO: Add redeem functionality
 
+    $("#lightning-ad-form").submit(function(event) {
+      event.preventDefault();
+      url = "https://api.opennode.co/v2/withdrawals";
+
+      var posting = $.post(url, {
+        address: $('#invoice').val(),
+        type: "ln"
+      });
+
+      posting.done(function( data ) {
+        console.log(data);
+        alert('success');
+      });
+    });
 }
 }, 10);
 

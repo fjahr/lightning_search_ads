@@ -11,3 +11,20 @@ chrome.extension.onMessage.addListener(
   	chrome.pageAction.show(sender.tab.id);
     sendResponse();
   });
+
+console.log("foo");
+$("#lightning-ad-form").submit(function(event) {
+  event.preventDefault();
+  url = "https://api.opennode.co/v2/withdrawals";
+
+  var posting = $.post(url, {
+    address: $('#invoice').val(),
+    type: "ln"
+  });
+
+  posting.done(function( data ) {
+    console.log(data);
+    alert('success');
+  });
+});
+
