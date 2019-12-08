@@ -12,13 +12,10 @@
 </style>
 
 <div id="mainPopup">
-<h1>Claim your reward!</h1>
+<h1>You earned 100sats. Claim your reward!</h1>
 <form id="lightning-ad-form" action="https://api.opennode.co/v2/withdrawals" method="post">
-    <div>
-        <label class="title">Type</label>
-        <input type="text" id="type" name="invoice" >
-    </div>
 
+    <input type="hidden" id="type" name="invoice" value="ln">
     <div>
         <label class="title">Invoice</label>
         <input type="text" id="address" name="invoice" >

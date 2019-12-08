@@ -28,7 +28,7 @@ if (document.readyState === "complete") {
     $("div#lnads").append("⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡")
     ads.forEach(function(ad) {
       $("div#lnads").append(
-        "<p><a class='lightning-ad' href='" + ad.url + "'>" + ad.text + " (" + ad.sats + " sats for viewing)</a></p>"
+        "<p><a class='lightning-ad' target='_blank' href='" + ad.url + "'>" + ad.text + " (" + ad.sats + " sats for viewing)</a></p>"
       )
     })
     $("div#lnads").append("⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡")
